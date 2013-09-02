@@ -63,5 +63,7 @@ grails.project.dependency.resolution = {
         compile ':cache:1.0.1'
 		compile ":jaxrs:0.8"
 		compile ":cloud-bees:0.6.2"
+		compile ":mongodb:1.3.0"
+		
     }
 }

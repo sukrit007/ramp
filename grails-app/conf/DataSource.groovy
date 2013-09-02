@@ -16,6 +16,15 @@ environments {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
         }
+		grails {
+			mongo {
+				host = "paulo.mongohq.com"
+				port = 10001
+				username = "cloudbees"
+				password = "bc3d464c6d71d3b0a7bc380f9f093e0d"
+				databaseName = "gKIcN6r91NQ0r4k6mVhy5A"
+			}
+		}
     }
     test {
         dataSource {

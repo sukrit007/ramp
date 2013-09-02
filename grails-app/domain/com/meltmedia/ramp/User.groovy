@@ -1,10 +1,9 @@
 package com.meltmedia.ramp
 
-class User {
 
-    static constraints = {
-		username blank:false
-    }
-	
+class User {
+	//static mapWith = "mongo"
+	static constraints = { username blank:false }
+
 	String username
 }
