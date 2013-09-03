@@ -2,10 +2,15 @@ package com.meltmedia.ramp
 
 import org.grails.jaxrs.provider.DomainObjectNotFoundException
 
+import com.meltmedia.ramp.representation.UserRepresentation;
+
+
+import static com.meltmedia.ramp.representation.UserRepresentation.*
+
 class UserResourceService {
 
-    def create(User dto) {
-        dto.save()
+    def create(UserRepresentation dto) {
+        toUser(dto).save()
     }
 
     def read(id) {
@@ -13,20 +18,20 @@ class UserResourceService {
         if (!obj) {
             throw new DomainObjectNotFoundException(User, id)
         }
-        obj
+        fromUser obj
     }
 
     def readAll() {
-        User.findAll()
+        User.findAll().collect { fromUser it}
     }
 
-    def update(User dto) {
-        def obj = User.get(dto.id)
+    def update(id, UserRepresentation dto) {
+        def obj = User.get(id)
         if (!obj) {
             throw new DomainObjectNotFoundException(User, dto.id)
         }
-        obj.properties = dto.properties
-        obj
+        obj.properties = toUser(dto).properties
+        fromUser obj
     }
 
     void delete(id) {

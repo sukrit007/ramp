@@ -89,3 +89,6 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+//REST
+org.grails.jaxrs.dowriter.disable=true
